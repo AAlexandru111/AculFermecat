@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using API.Entities;
+using El_Proyecte_Grande.Entities;
 
-namespace API.Data
+namespace El_Proyecte_Grande.Data
 {
     public static class DbInitializer
     {
