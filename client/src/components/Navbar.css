@@ -1,7 +1,13 @@
 .links{
     font-family: 'Raleway';
-    /* font-weight: 700, */
     color: black;
     font-weight: bold;
     font-size: 1.3em;
+    display: inline-block;
+    position: relative;
+    opacity: 0.75;
+}
+
+.nav{
+    border-bottom: 1px solid #BBBBBB;
 }

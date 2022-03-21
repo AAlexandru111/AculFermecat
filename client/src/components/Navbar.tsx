@@ -30,7 +30,7 @@ export default function Navbar() {
 
             </Box>
 
-                <List sx={{display:'flex'}}>
+                <List sx={{display:'flex'}} className="nav">
                     {midLinks.map(({title, path})=> (
                         <ListItem className="links"
                         component={NavLink}
