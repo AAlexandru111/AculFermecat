@@ -1,3 +1,7 @@
+.body{
+    font-family: 'Raleway', sans-serif;
+}
+
 .cover{
     width: 100%;
     height:auto;
@@ -6,4 +10,21 @@
 .coverdiv{
     object-fit: contain;
     height: auto;
+    position: relative;
 }
+
+.css-khgpfn-MuiPaper-root-MuiAppBar-root{
+    background-color: transparent !important;
+    margin:0 !important;
+}
+
+.blackcover{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+

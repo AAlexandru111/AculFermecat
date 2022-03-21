@@ -1,13 +1,16 @@
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box, Container } from "@mui/material";
-import cover from '.././images/cover.jpg'
-import './Homepage.css'
+import './Homepage.css';
+import cover from '../images/cover1.jpg';
 
 export default function Homepage() {
     return (
         <>
+        
             <div className="coverdiv">
                 <img src={cover} className="cover"></img>
+                <div className="blackcover"></div>
             </div>
+            
         </>
     )
 }

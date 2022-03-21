@@ -1,6 +1,7 @@
 import { ShoppingCart } from "@mui/icons-material";
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import '../components/Navbar.css'
 
 const midLinks=[
     {title: 'products', path: '/products'},
@@ -13,16 +14,6 @@ const rightLinks=[
     {title: 'register ', path: '/register'},
 ]
 
-const navStyles = {color: 'inherit',
-                    typography: 'h6',
-                    '&:hover': {
-                    color: 'grey.500'
-                    },
-                    '&.active':{
-                    color: 'text.secondary'
-                    }
-
-                    }
 
 
 export default function Navbar() {
@@ -33,7 +24,7 @@ export default function Navbar() {
 
             <Box display='flex' alignItems='center'>
                 <Typography variant="h6" component={NavLink} to='/' exact
-                 sx={{color: 'inherit', textDecoration:'none'}}>
+                 sx={{color: 'black', textDecoration:'none',fontFamily: 'Raleway',fontWeight: 700}}>
                     ACUL FERMECAT[LOGO]
                 </Typography>
 
@@ -41,29 +32,31 @@ export default function Navbar() {
 
                 <List sx={{display:'flex'}}>
                     {midLinks.map(({title, path})=> (
-                        <ListItem
+                        <ListItem className="links"
                         component={NavLink}
                         to={path}
                         key={path}
-                        sx={navStyles}>
+                        >
                             {title.toUpperCase()}
                         </ListItem>
                     ))}
                 </List>
 
                 <Box display='flex' alignItems='center'>
-                <IconButton size='large' sx={{color: 'inherit'}}>
-                    <Badge badgeContent={4} color='secondary'>
+                <IconButton size='large' sx={{color: 'black'}}>
+                    <Badge badgeContent={4} color='primary'>
                         <ShoppingCart></ShoppingCart>
                         </Badge>
                 </IconButton>
-                <List sx={{display:'flex'}}>
+                <List sx={{display:'flex', fontFamily: 'Raleway',
+                    fontWeight: 700}}>
                     {rightLinks.map(({title, path})=> (
                         <ListItem
                         component={NavLink}
                         to={path}
                         key={path}
-                        sx={navStyles}>
+                        sx={{fontFamily: 'Raleway',
+                        fontWeight: 700}}>
                             {title.toUpperCase()}
                         </ListItem>
                     ))}

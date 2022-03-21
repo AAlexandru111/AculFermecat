@@ -2,11 +2,11 @@
 import './App.css';
 import { useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Homepage from './pages/Homepage.tsx';
-import About from './pages/About.tsx';
-import Contact from './pages/Contact.tsx';
-import Products from './pages/Products.tsx';
-import Navbar from './components/Navbar.tsx'
+import Homepage from './pages/Homepage';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Products from './pages/Products';
+import Navbar from './components/Navbar'
 import { Container } from '@mui/material';
 
 function App() {
