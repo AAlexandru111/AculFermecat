@@ -1,6 +1,6 @@
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box, Container } from "@mui/material";
 import './Homepage.css';
-import cover from '../images/cover1.jpg';
+import cover from '../pictures/cover.jpg';
 
 export default function Homepage() {
     return (

@@ -2,6 +2,7 @@ import { ShoppingCart } from "@mui/icons-material";
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import '../components/Navbar.css'
+import logo from '../pictures/logo.png'
 
 const midLinks=[
     {title: 'products', path: '/products'},
@@ -25,14 +26,14 @@ export default function Navbar() {
             <Box display='flex' alignItems='center'>
                 <Typography variant="h6" component={NavLink} to='/' exact
                  sx={{color: 'black', textDecoration:'none',fontFamily: 'Raleway',fontWeight: 700}}>
-                    ACUL FERMECAT[LOGO]
+                   <img src={logo} className='logo'></img>
                 </Typography>
 
             </Box>
 
                 <List sx={{display:'flex'}} className="nav">
                     {midLinks.map(({title, path})=> (
-                        <ListItem className="links"
+                        <ListItem className="links border"
                         component={NavLink}
                         to={path}
                         key={path}
@@ -51,7 +52,7 @@ export default function Navbar() {
                 <List sx={{display:'flex', fontFamily: 'Raleway',
                     fontWeight: 700}}>
                     {rightLinks.map(({title, path})=> (
-                        <ListItem
+                        <ListItem className="linksa border"
                         component={NavLink}
                         to={path}
                         key={path}
