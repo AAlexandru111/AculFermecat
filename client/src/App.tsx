@@ -15,6 +15,7 @@ import { useStoreContext } from './context/StoreContext';
 import { getCookie } from './util/util';
 import agent from './features/api/agent';
 import LoadingComponent from './components/LoadingComponent';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
         <Route exact path='/products' component={Products}></Route>
         <Route exact path='/products/:id' component={ProductDetails}></Route>
         <Route exact path='/basket' component={BasketPage}></Route>
+        <Route exact path='/checkout' component={CheckoutPage}></Route>
         </Switch>
         <Footer/>
     </div>

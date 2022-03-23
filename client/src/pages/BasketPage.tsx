@@ -1,7 +1,8 @@
 import { Add, Delete, Remove } from "@mui/icons-material";
 import { LoadingButton } from "@mui/lab";
-import { Box, Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import LoadingComponent from "../components/LoadingComponent";
 import { useStoreContext } from "../context/StoreContext";
 import agent from "../features/api/agent";
@@ -85,6 +86,7 @@ export default function BasketPage(){
         <Grid item xs={6}></Grid>
         <Grid item xs={6}>
           <BasketSummary></BasketSummary>
+          <Button component={Link} to='/checkout' variant='contained' size='large' fullWidth>Checkout</Button>
         </Grid>
       </Grid>
       </>
