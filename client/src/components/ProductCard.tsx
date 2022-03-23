@@ -2,12 +2,25 @@ import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, 
 import { Link } from "react-router-dom";
 import { Product } from "../features/models/products";
 import '../components/ProductCard.css';
+import { useState } from "react";
+import agent from "../features/api/agent";
+import { LoadingButton } from "@mui/lab";
 
 interface Props{
     product: Product;
 }
 
 export default function ProductCard({product}: Props){
+
+const [loading,setLoading] = useState(false);
+
+function handleAddItem(productId: number){
+  setLoading(true);
+  agent.Basket.addItem(productId)
+  .catch(error => console.log(error))
+  .finally(() => setLoading(false))
+}
+
     return(
         <Card>
             <CardHeader avatar={
@@ -32,7 +45,7 @@ export default function ProductCard({product}: Props){
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Add to cart</Button>
+          <LoadingButton loading={loading} onClick={() => handleAddItem(product.id)} size="small">Add to cart</LoadingButton>
           <Button component={Link} to={`/products/${product.id}`} size="small">View</Button>
         </CardActions>
       </Card>

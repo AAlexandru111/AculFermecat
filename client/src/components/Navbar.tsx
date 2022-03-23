@@ -1,6 +1,6 @@
 import { ShoppingCart } from "@mui/icons-material";
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import '../components/Navbar.css'
 import logo from '../pictures/logo.png'
 
@@ -44,7 +44,7 @@ export default function Navbar() {
                 </List>
 
                 <Box display='flex' alignItems='center'>
-                <IconButton size='large' sx={{color: 'black'}}>
+                <IconButton component={Link} to='/basket' size='large' sx={{color: 'black'}}>
                     <Badge badgeContent={4} color='primary'>
                         <ShoppingCart></ShoppingCart>
                         </Badge>

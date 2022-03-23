@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 import { Container } from '@mui/material';
 import ProductDetails from '../src/pages/ProductDetails';
 import Footer from '../src/components/Footer'
+import BasketPage from './pages/BasketPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route exact path='/contact' component={Contact}></Route>
         <Route exact path='/products' component={Products}></Route>
         <Route exact path='/products/:id' component={ProductDetails}></Route>
+        <Route exact path='/basket' component={BasketPage}></Route>
         </Switch>
         <Footer/>
     </div>
