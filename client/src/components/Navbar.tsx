@@ -2,6 +2,7 @@ import { ShoppingCart } from "@mui/icons-material";
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import '../components/Navbar.css'
+import { useStoreContext } from "../context/StoreContext";
 import logo from '../pictures/logo.png'
 
 const midLinks=[
@@ -18,6 +19,9 @@ const rightLinks=[
 
 
 export default function Navbar() {
+
+    const {basket} = useStoreContext();
+    const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
         <>
             <AppBar position="static" sx={{mb: 4}}>
@@ -45,7 +49,7 @@ export default function Navbar() {
 
                 <Box display='flex' alignItems='center'>
                 <IconButton component={Link} to='/basket' size='large' sx={{color: 'black'}}>
-                    <Badge badgeContent={4} color='primary'>
+                    <Badge badgeContent={itemCount} color='primary'>
                         <ShoppingCart></ShoppingCart>
                         </Badge>
                 </IconButton>

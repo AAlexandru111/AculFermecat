@@ -5,6 +5,7 @@ import '../components/ProductCard.css';
 import { useState } from "react";
 import agent from "../features/api/agent";
 import { LoadingButton } from "@mui/lab";
+import { useStoreContext } from "../context/StoreContext";
 
 interface Props{
     product: Product;
@@ -13,10 +14,12 @@ interface Props{
 export default function ProductCard({product}: Props){
 
 const [loading,setLoading] = useState(false);
+const {setBasket} = useStoreContext();
 
 function handleAddItem(productId: number){
   setLoading(true);
   agent.Basket.addItem(productId)
+  .then(basket => setBasket(basket))
   .catch(error => console.log(error))
   .finally(() => setLoading(false))
 }
@@ -32,7 +35,7 @@ function handleAddItem(productId: number){
         <CardMedia
         sx={{height:140,backgroundSize:'contain', bgcolor: 'primary.light'}}
           component="img"
-          image={product.picture}
+          image={product.pictureUrl}
           alt="green iguana"
           title={product.name}
         />

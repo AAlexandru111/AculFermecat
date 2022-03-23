@@ -25,7 +25,7 @@ export default function ProductDetails(){
     return(
         <Grid container spacing={6}>
             <Grid item xs={6}>
-                <img src={product.picture} alt={product.name} style={{width:"100%"}}></img>
+                <img src={product.pictureUrl} alt={product.name} style={{width:"100%"}}></img>
                 </Grid>
                 <Grid item xs={6}>
                     <Typography variant='h3'>{product.name}</Typography>
