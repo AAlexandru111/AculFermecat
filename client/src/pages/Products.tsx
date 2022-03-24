@@ -5,6 +5,7 @@ import agent from "../features/api/agent";
 import LoadingComponent from "../components/LoadingComponent";
 import { Product } from "../features/models/products";
 import ProductList from "../components/ProductsList";
+import Footer from "../components/Footer";
 
 export default function Products() {
 
@@ -23,6 +24,7 @@ export default function Products() {
     return (
         <>
         <ProductList products={products}></ProductList>
+        <Footer/>
     </>
     )
 }

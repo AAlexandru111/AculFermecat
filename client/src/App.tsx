@@ -48,7 +48,7 @@ function App() {
         <Route exact path='/basket' component={BasketPage}></Route>
         <Route exact path='/checkout' component={CheckoutPage}></Route>
         </Switch>
-        <Footer/>
+        
     </div>
   );
 }

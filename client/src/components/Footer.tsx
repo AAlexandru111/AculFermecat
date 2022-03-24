@@ -1,6 +1,7 @@
 import { Container } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { Box } from "@material-ui/core";
+import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import './Footer.css'
 
@@ -13,58 +14,58 @@ export default function Footer(){
             py={{xs:5, sm:10 }}
             color="white">
                 <Container maxWidth='lg'>
-                    <Grid container spacing={5}>
-                        <Grid item xs={12} sm={4}>
-                            <Box borderBottom={1}>Help</Box>
-                            <Box>
+                    <Grid container spacing={7} >
+                        <Grid item xs={12} sm={4} spacing={4}>
+                            <Box borderBottom={1}><Typography variant='h5'>Need Help</Typography></Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                                    Home
                                 </Link>
                             </Box>
-                            <Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/contact' color='inherit'>
-                                    Contact
+                                    Contact us
                                 </Link>
                             </Box>
-                            <Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/about' color='inherit'>
-                                    Contact
+                                    About us
                                 </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Box borderBottom={1}>Help</Box>
-                            <Box>
-                                <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                            <Box borderBottom={1}><Typography variant='h5'>Products</Typography></Box>
+                            <Box sx={{ p: 1}}>
+                                <Link className="footerlinks" to='/products' color='inherit'>
+                                    Product page
                                 </Link>
                             </Box>
-                            <Box>
-                                <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                            <Box sx={{ p: 1}}>
+                                <Link className="footerlinks" to='/basket' color='inherit'>
+                                    Cart
                                 </Link>
                             </Box>
-                            <Box>
-                                <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                            <Box sx={{ p: 1}}>
+                                <Link className="footerlinks" to='/checkout' color='inherit'>
+                                    Checkout
                                 </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Box borderBottom={1}>Help</Box>
-                            <Box>
+                            <Box borderBottom={1}><Typography variant='h5'>Contact</Typography></Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                                    Phone
                                 </Link>
                             </Box>
-                            <Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                                    WhatsApp
                                 </Link>
                             </Box>
-                            <Box>
+                            <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/' color='inherit'>
-                                    Contact
+                                    Facebook
                                 </Link>
                             </Box>
                         </Grid>

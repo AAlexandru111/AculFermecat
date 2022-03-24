@@ -8,6 +8,7 @@ import LoadingComponent from "../components/LoadingComponent";
 import { Product } from "../features/models/products";
 import { useStoreContext } from "../context/StoreContext";
 import { LoadingButton } from "@mui/lab";
+import Footer from "../components/Footer";
 
 export default function ProductDetails(){
     const {basket, setBasket, removeItem} = useStoreContext();
@@ -54,6 +55,7 @@ export default function ProductDetails(){
 
     if (!product) return <NotFound/>
     return(
+        <>
         <Grid container spacing={6}>
             <Grid item xs={6}>
                 <img src={product.pictureUrl} alt={product.name} style={{width:"100%"}}></img>
@@ -113,6 +115,10 @@ export default function ProductDetails(){
                         </Grid>
                     </Grid>
                     </Grid>
+                    
         </Grid>
+        <Footer/>
+        </>
+        
     )
 }

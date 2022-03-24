@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 
 import GoogleMap from '../components/Map/GoogleMap';
+import Footer from "../components/Footer";
 
 
 export default function Contact() {
@@ -16,6 +17,7 @@ export default function Contact() {
         <> 
         <Typography variant='h2'>Contact</Typography>
         <GoogleMap location={location} zoomLevel={19}></GoogleMap>
+        <Footer/>
         </>
     )
 }
