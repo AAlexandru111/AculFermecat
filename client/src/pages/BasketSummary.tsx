@@ -1,4 +1,5 @@
-import { TableContainer, Paper, Table, TableBody, TableRow, TableCell, Typography } from "@mui/material";
+import { TableContainer, Paper, Table, TableBody, TableRow, TableCell, Typography, Container } from "@mui/material";
+import Footer from "../components/Footer";
 import { useStoreContext } from "../context/StoreContext";
 import { currencyFormat } from "../util/util";
 
@@ -33,6 +34,7 @@ export default function BasketSummary() {
                     </TableBody>
                 </Table>
             </TableContainer>
+            
         </>
     )
 }
