@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+.customtext{
+    margin-top: 50px !important;
+    width: 800px;
+    font-family: 'Raleway', sans-serif !important;
+    margin-bottom: 60px !important;
+
+}
+
+.customdiv{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.customtitle{
+    font-family: 'Poppins', sans-serif !important;
+    margin-top: 50px !important;
+}
+
+.css-mhc70k-MuiGrid-root{
+    justify-content: center !important;
+}

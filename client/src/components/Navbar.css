@@ -1,7 +1,7 @@
 .links{
     margin: 35px !important;  
     font-family: 'Raleway', sans-serif;
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: 800;
     text-transform:uppercase;
     text-align: center;
@@ -46,7 +46,7 @@
   .linksa{
     margin: 35px !important;  
     font-family: 'Raleway', sans-serif;
-    font-size: 1.1em;
+    font-size: 1em !important;
     font-weight: 800;
     text-transform:uppercase;
     text-align: center;

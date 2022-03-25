@@ -16,6 +16,7 @@ import { getCookie } from './util/util';
 import agent from './features/api/agent';
 import LoadingComponent from './components/LoadingComponent';
 import CheckoutPage from './pages/CheckoutPage';
+import CustomOrder from './pages/CustomOrder';
 
 function App() {
 
@@ -47,6 +48,9 @@ function App() {
         <Route exact path='/products/:id' component={ProductDetails}></Route>
         <Route exact path='/basket' component={BasketPage}></Route>
         <Route exact path='/checkout' component={CheckoutPage}></Route>
+        {/*
+ // @ts-ignore */}
+        <Route  exact path='/custom' component={CustomOrder}></Route>
         </Switch>
         
     </div>

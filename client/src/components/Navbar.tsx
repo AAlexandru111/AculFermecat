@@ -8,7 +8,8 @@ import logo from '../pictures/logo.png'
 const midLinks=[
     {title: 'products', path: '/products'},
     {title: 'about ', path: '/about'},
-    {title: 'contact', path: '/contact'},
+    { title: 'contact', path: '/contact' },
+    {title: 'custom', path: '/custom'},
 ]
 
 const rightLinks=[
