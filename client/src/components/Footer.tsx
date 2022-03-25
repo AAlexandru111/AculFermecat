@@ -54,19 +54,17 @@ export default function Footer(){
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom={1}><Typography variant='h5'>Contact</Typography></Box>
                             <Box sx={{ p: 1}}>
-                                <Link className="footerlinks" to='/' color='inherit'>
-                                    Phone
-                                </Link>
+                                <a href="tel:+40755066044" className="footerlinks">Phone</a>
                             </Box>
                             <Box sx={{ p: 1}}>
-                                <Link className="footerlinks" to='/' color='inherit'>
+                                <a href="https://wa.me/+40755066044" className="footerlinks" target="_blank">
                                     WhatsApp
-                                </Link>
+                                </a>
                             </Box>
                             <Box sx={{ p: 1}}>
-                                <Link className="footerlinks" to='/' color='inherit'>
+                                <a href="https://www.facebook.com/artelieraculfermecat" className="footerlinks" target="_blank">
                                     Facebook
-                                </Link>
+                                </a>
                             </Box>
                         </Grid>
 
