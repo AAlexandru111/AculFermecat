@@ -1,6 +1,6 @@
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box, Container, Grid } from "@mui/material";
 import './Homepage.css';
-import cover from '../pictures/cover2.jpg';
+import cover from '../pictures/aculfermecat.jpg';
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import { Product } from "../features/models/products";
