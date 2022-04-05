@@ -1,0 +1,14 @@
+.sliderimg{
+    height:700px;
+    width:700px;
+    border-radius: 700px;
+}
+
+.alice-carousel__play-btn{
+    display:none !important;
+}
+
+.alice-carousel__stage-item {
+    margin-bottom: 100px !important;
+    margin-top: 100px !important;
+}

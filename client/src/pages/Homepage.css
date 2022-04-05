@@ -1,0 +1,52 @@
+.body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.cover{
+    width: 100%;
+    height:800px;
+}
+
+.coverdiv{
+    object-fit: contain;
+    height: auto;
+    position: relative;
+}
+
+.css-khgpfn-MuiPaper-root-MuiAppBar-root{
+    background-color: transparent !important;
+    margin:0 !important;
+}
+
+.blackcover{
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+.buttontoproducts{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgb(255 255 255 / 69%);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: 'Raleway', sans-serif;
+}
+
+.buttontoproducts:hover{
+    background-color: rgba(0, 0, 0, 0.459);
+    color: white;
+}

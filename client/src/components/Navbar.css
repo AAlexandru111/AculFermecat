@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+.links{
+    margin: 35px !important;  
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2em;
+    text-transform:uppercase;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    color: black;
+}
+
+.nav{
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.links::before {
+    position: absolute;
+    bottom:0px;
+    left:50%;
+    background-color: #000;
+    opacity:0.5;
+    content:'';
+    height:2px;
+    width:0%;
+    transition: ease-in-out 0.3s
+  }
+  .links::after {
+    position: absolute;
+    bottom:0px;
+    right:50%;
+    background-color: #000;
+    opacity:0.5;
+    content:'';
+    height:2px;
+    width:0%;
+    transition: ease-in-out 0.3s
+  }
+  .links:hover::before{
+    width:40%;
+  }
+  .links:hover::after {
+    width:40%
+  }
+
+  .linksa{
+    margin: 35px !important;  
+    font-family: 'Lato', sans-serif;
+    font-size: 1em !important;
+    text-transform:uppercase;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0;
+    color: black;
+}
+
+.nav{
+    border-bottom: 1px solid #BBBBBB;
+}
+
+.linksa::before {
+    position: absolute;
+    bottom:0px;
+    left:50%;
+    background-color: #000;
+    opacity:0.5;
+    content:'';
+    height:2px;
+    width:0%;
+    transition: ease-in-out 0.3s
+  }
+  .linksa::after {
+    position: absolute;
+    bottom:0px;
+    right:50%;
+    background-color: #000;
+    opacity:0.5;
+    content:'';
+    height:2px;
+    width:0%;
+    transition: ease-in-out 0.3s
+  }
+  .linksa:hover::before{
+    width:40%;
+  }
+  .linksa:hover::after {
+    width:40%
+  }
+
+  .logo{
+      width:300px;
+      height:auto;
+      margin-left: 50px;
+  }
+
+  .css-13twxbv-MuiList-root{
+    font-weight: 900 !important;
+  }
+
+  .css-1lnam2o-MuiListItem-root{
+    font-weight: 900 !important;
+  }
