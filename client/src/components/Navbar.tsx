@@ -3,6 +3,7 @@ import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography,
 import { Link, NavLink } from "react-router-dom";
 import '../components/Navbar.css'
 import { useStoreContext } from "../context/StoreContext";
+import { useAppSelector } from "../features/store/configureStore";
 import logo from '../pictures/logo.png'
 
 const midLinks=[
@@ -21,7 +22,8 @@ const rightLinks=[
 
 export default function Navbar() {
 
-    const {basket} = useStoreContext();
+    const { basket } = useAppSelector(state => state.basket);
+    // const { user } = useAppSelector(state => state.account);
     const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
         <>
