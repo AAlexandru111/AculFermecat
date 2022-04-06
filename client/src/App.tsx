@@ -20,6 +20,8 @@ import CustomOrder from './pages/custom/CustomOrder';
 import { Basket } from './features/models/basket';
 import { useAppDispatch } from './features/store/configureStore';
 import { fetchBasketAsync, setBasket } from './pages/basket/basketSlice';
+import Login from './pages/account/Login';
+import Register from './pages/account/Register';
 
 function App() {
 
@@ -68,6 +70,8 @@ function App() {
         <Route exact path='/products/:id' component={ProductDetails}></Route>
         <Route exact path='/basket' component={BasketPage}></Route>
         <Route exact path='/checkout' component={CheckoutPage}></Route>
+        <Route exact path='/login' component={Login}></Route>
+        <Route exact path='/register' component={Register}></Route>
         {/*
  // @ts-ignore */}
         <Route  exact path='/custom' component={CustomOrder}></Route>
