@@ -16,7 +16,7 @@ import { getCookie } from './util/util';
 import agent from './features/api/agent';
 import LoadingComponent from './components/LoadingComponent';
 import CheckoutPage from './pages/CheckoutPage';
-import CustomOrder from './pages/CustomOrder';
+import CustomOrder from './pages/custom/CustomOrder';
 import { Basket } from './features/models/basket';
 import { useAppDispatch } from './features/store/configureStore';
 import { fetchBasketAsync } from './pages/basket/basketSlice';

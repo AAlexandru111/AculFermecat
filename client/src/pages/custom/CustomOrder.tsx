@@ -1,8 +1,8 @@
 import { Box, Grid, Link, MenuItem, Typography } from "@mui/material";
 import { TextField } from '@mui/material';
 import { useState } from "react";
-import Footer from "../components/Footer";
-import '../pages/CustomOrder.css';
+import Footer from "../../components/Footer";
+import '../custom/CustomOrder.css';
 
 
 export default function CustomOrder() {
