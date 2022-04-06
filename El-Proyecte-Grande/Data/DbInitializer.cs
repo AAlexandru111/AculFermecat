@@ -1,13 +1,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using El_Proyecte_Grande.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace El_Proyecte_Grande.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(StoreContext context) 
+        public static async  Task Initialize(StoreContext context, UserManager<User> userManager) 
         {
+
+            if (!userManager.Users.Any())
+            {
+                var user = new User
+                {
+                    UserName = "bob",
+                    Email = "bob@gmail.com"
+                };
+                await userManager.CreateAsync(user, "Pa$$w0rd");
+                await userManager.AddToRoleAsync(user, "Member");
+
+                var admin = new User
+                {
+                    UserName = "admin",
+                    Email = "admin@test.com"
+                };
+                await userManager.CreateAsync(admin, "Pa$$w0rd");
+                await userManager.AddToRolesAsync(admin, new[] { "Admin", "Member" });
+            }
+
             if (context.Products.Any()) return;
 
             var products = new List<Product>()

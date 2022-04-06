@@ -28,12 +28,12 @@ namespace El_Proyecte_Grande
             var host = CreateHostBuilder(args).Build();
             using var scope = host.Services.CreateScope();
             var context = scope.ServiceProvider.GetRequiredService<StoreContext>();
-    //        var usermanager = scope.serviceprovider.getrequiredservice<usermanager<user>>();
+            var usermanager = scope.ServiceProvider.GetRequiredService<UserManager<User>>();
             var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
             try
             {
                 await context.Database.MigrateAsync();
-                DbInitializer.Initialize(context);
+                await DbInitializer.Initialize(context, usermanager);
             }
             catch (Exception ex)
             {
