@@ -5,9 +5,10 @@ import RadioButtonGroup from "../../components/RadioButtonGroup";
 import useProducts from "../../features/hooks/useProducts";
 import LoadingComponent from "../../components/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
-import { setPageNumber, setProductParams } from "./productSlice";
+import { fetchProductsAsync, setPageNumber, setProductParams } from "./productSlice";
 import ProductList from "../../components/ProductsList";
 import ProductSearch from "./ProductSearch";
+import { useEffect } from "react";
 
 const sortOptions = [
     { value: 'name', label: 'Alphabetical' },

@@ -19,7 +19,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import CustomOrder from './pages/custom/CustomOrder';
 import { Basket } from './features/models/basket';
 import { useAppDispatch } from './features/store/configureStore';
-import { fetchBasketAsync } from './pages/basket/basketSlice';
+import { fetchBasketAsync, setBasket } from './pages/basket/basketSlice';
 
 function App() {
 
@@ -28,17 +28,17 @@ function App() {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
 
-  const initApp = useCallback(async () => {
-    try {
-      await dispatch(fetchBasketAsync());
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    const buyerId = getCookie('buyerId');
+    if (buyerId) {
+      agent.Basket.get()
+        .then(basket => dispatch(setBasket(basket)))
+        .catch(error => console.log(error))
+        .finally(() => setLoading(false))
+    } else {
+      setLoading(false);
     }
   }, [dispatch])
-
-  useEffect(() => {
-    initApp().then(() => setLoading(false));
-  }, [initApp])
 
   // const {setBasket} = useStoreContext();
   // const [loading, setLoading] = useState(true);

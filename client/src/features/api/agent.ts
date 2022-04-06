@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosResponse } from "axios";
 import { request } from "http";
 import { toast } from "react-toastify";
 import { history } from "../..";
+import { PaginatedResponse } from "../models/pagination";
 
 const sleep = () => new Promise(resolve => setTimeout(resolve , 500));
 
@@ -11,9 +12,16 @@ axios.defaults.withCredentials = true;
 
 const responseBody = (response : AxiosResponse) => response.data;
 
+
+
 axios.interceptors.response.use(async response => {
     await sleep();
-    return response
+    const pagination = response.headers['pagination'];
+    if (pagination) {
+        response.data = new PaginatedResponse(response.data, JSON.parse(pagination));
+        return response;
+    }
+    return response;
 }, (error: AxiosError) =>{
     const {data, status} = error.response!;
     switch (status) {
@@ -50,12 +58,12 @@ const requests = {
     post: (url: string, body: {}) => axios.post(url, body).then(responseBody),
     put: (url: string, body: {}) => axios.put(url, body).then(responseBody),
     delete: (url: string) => axios.delete(url).then(responseBody),
-    postForm: (url: string, data: FormData) => axios.post(url, data, {
-        headers: {'Content-type': 'multipart/form-data'}
-    }).then(responseBody),
-    putForm: (url: string, data: FormData) => axios.put(url, data, {
-        headers: {'Content-type': 'multipart/form-data'}
-    }).then(responseBody)
+    // postForm: (url: string, data: FormData) => axios.post(url, data, {
+    //     headers: {'Content-type': 'multipart/form-data'}
+    // }).then(responseBody),
+    // putForm: (url: string, data: FormData) => axios.put(url, data, {
+    //     headers: {'Content-type': 'multipart/form-data'}
+    // }).then(responseBody)
 }
 const Catalog = {
     list: (params: URLSearchParams) => requests.get('products', params),
