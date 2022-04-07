@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using API.Middleware;
 using El_Proyecte_Grande.Data;
 using El_Proyecte_Grande.Entities;
 using El_Proyecte_Grande.Services;
@@ -34,14 +35,7 @@ namespace El_Proyecte_Grande
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(opt =>
-            {
-                opt.AddPolicy("CorsPolicy", policy =>
-                {
-                    //policy.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000/");
-                    policy.AllowAnyMethod().AllowAnyHeader().AllowCredentials().WithOrigins("http://localhost:3000");
-                });
-            });
+            services.AddCors();
             services.AddControllers();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(opt =>
@@ -102,7 +96,7 @@ namespace El_Proyecte_Grande
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // app.UseMiddleware<ExceptionMiddleware>();
+            app.UseMiddleware<ExceptionMiddleware>();
 
             if (env.IsDevelopment())
             {
@@ -111,11 +105,17 @@ namespace El_Proyecte_Grande
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
             }
 
-            app.UseHttpsRedirection();
+
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
 
-            app.UseCors("CorsPolicy");
+            app.UseCors(opt =>
+            {
+                opt.AllowAnyHeader().AllowAnyMethod().AllowCredentials().WithOrigins("http://localhost:3000");
+            });
 
             app.UseAuthentication();
 
