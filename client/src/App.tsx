@@ -22,40 +22,25 @@ import { useAppDispatch } from './features/store/configureStore';
 import { fetchBasketAsync, setBasket } from './pages/basket/basketSlice';
 import Login from './pages/account/Login';
 import Register from './pages/account/Register';
+import { fetchCurrentUser } from './pages/account/accountSlice';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
-
-
-
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const buyerId = getCookie('buyerId');
-    if (buyerId) {
-      agent.Basket.get()
-        .then(basket => dispatch(setBasket(basket)))
-        .catch(error => console.log(error))
-        .finally(() => setLoading(false))
-    } else {
-      setLoading(false);
+  const initApp = useCallback(async () => {
+    try {
+      await dispatch(fetchCurrentUser());
+      await dispatch(fetchBasketAsync());
+    } catch (error) {
+      console.log(error);
     }
   }, [dispatch])
 
-  // const {setBasket} = useStoreContext();
-  // const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   const buyerId = getCookie('buyerId');
-  //   if(buyerId) {
-  //     agent.Basket.get()
-  //     .then((basket: Basket) => setBasket(basket))
-  //     .catch((error: any) => console.log(error))
-  //     .finally(() => setLoading(false));
-  //   } else{
-  //     setLoading(false);
-  //   }
-  // }, [setBasket])
+  useEffect(() => {
+    initApp().then(() => setLoading(false));
+  }, [initApp])
 
     if(loading) return <LoadingComponent message="Loading.."></LoadingComponent>
 
@@ -72,6 +57,7 @@ function App() {
         <Route exact path='/checkout' component={CheckoutPage}></Route>
         <Route exact path='/login' component={Login}></Route>
         <Route exact path='/register' component={Register}></Route>
+        <PrivateRoute path='/checkout' component={CheckoutPage} />
         {/*
  // @ts-ignore */}
         <Route  exact path='/custom' component={CustomOrder}></Route>

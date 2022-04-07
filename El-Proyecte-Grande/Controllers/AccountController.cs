@@ -56,7 +56,9 @@ namespace El_Proyecte_Grande.Controllers
         [HttpGet("currentUser")]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
             return new UserDto
             {
                 Email = user.Email,

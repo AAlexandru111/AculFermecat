@@ -3,6 +3,7 @@ import { request } from "http";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { PaginatedResponse } from "../models/pagination";
+import { store } from "../store/configureStore";
 
 const sleep = () => new Promise(resolve => setTimeout(resolve , 500));
 
@@ -38,7 +39,7 @@ axios.interceptors.response.use(async response => {
             toast.error(data.title);
             break;
         case 401:
-            toast.error(data.title);
+            toast.error(data.title || "Unauthorised");
             break;
         case 500:
             history.push({
@@ -53,17 +54,18 @@ axios.interceptors.response.use(async response => {
     return Promise.reject(error.response);
 })
 
+// axios.interceptors.request.use(config => {
+//     const token = store.getState().account.user?.token;
+//     if (token) config.headers!.Authorization = `Bearer ${token}`;
+//     return config;
+// })
+
 const requests = {
     get: (url: string, params?: URLSearchParams) => axios.get(url, {params}).then(responseBody),
     post: (url: string, body: {}) => axios.post(url, body).then(responseBody),
     put: (url: string, body: {}) => axios.put(url, body).then(responseBody),
     delete: (url: string) => axios.delete(url).then(responseBody),
-    // postForm: (url: string, data: FormData) => axios.post(url, data, {
-    //     headers: {'Content-type': 'multipart/form-data'}
-    // }).then(responseBody),
-    // putForm: (url: string, data: FormData) => axios.put(url, data, {
-    //     headers: {'Content-type': 'multipart/form-data'}
-    // }).then(responseBody)
+
 }
 const Catalog = {
     list: (params: URLSearchParams) => requests.get('products', params),

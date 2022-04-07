@@ -5,6 +5,7 @@ import '../components/Navbar.css'
 import { useStoreContext } from "../context/StoreContext";
 import { useAppSelector } from "../features/store/configureStore";
 import logo from '../pictures/logo.png'
+import SignedInMenu from "./SignedInMenu";
 
 const midLinks=[
     {title: 'products', path: '/products'},
@@ -23,7 +24,7 @@ const rightLinks=[
 export default function Navbar() {
 
     const { basket } = useAppSelector(state => state.basket);
-    // const { user } = useAppSelector(state => state.account);
+    const { user } = useAppSelector(state => state.account);
     const itemCount = basket?.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
         <>
@@ -56,7 +57,10 @@ export default function Navbar() {
                         <ShoppingCart></ShoppingCart>
                         </Badge>
                 </IconButton>
-                <List sx={{display:'flex', fontFamily: 'Raleway',
+                {user ? (
+                    <SignedInMenu></SignedInMenu>
+                ):(
+                    <List sx={{display:'flex', fontFamily: 'Raleway',
                     fontWeight: 700}}>
                     {rightLinks.map(({title, path})=> (
                         <ListItem className="linksa border"
@@ -69,6 +73,8 @@ export default function Navbar() {
                         </ListItem>
                     ))}
                 </List>
+                )}
+                
                 </Box>
 
             </Toolbar>
