@@ -51,6 +51,7 @@ namespace El_Proyecte_Grande
                     };
                 });
             services.AddScoped<TokenService>();
+            services.AddScoped<PaymentService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
