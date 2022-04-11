@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ana\\Desktop\\advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj": {}
+    "C:\\Users\\User\\Desktop\\proiect advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ana\\Desktop\\advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj": {
+    "C:\\Users\\User\\Desktop\\proiect advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ana\\Desktop\\advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\proiect advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj",
         "projectName": "El-Proyecte-Grande",
-        "projectPath": "C:\\Users\\Ana\\Desktop\\advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj",
-        "packagesPath": "C:\\Users\\Ana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ana\\Desktop\\advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\proiect advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\El-Proyecte-Grande.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\proiect advanced\\el-proyecte-grande-sprint-3-csharp-AAlexandru111\\El-Proyecte-Grande\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

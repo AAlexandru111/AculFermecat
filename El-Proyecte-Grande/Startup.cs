@@ -90,7 +90,7 @@ namespace El_Proyecte_Grande
             services.AddIdentityCore<User>(opt =>
             {
                 opt.User.RequireUniqueEmail = true;
-            }).AddRoles<IdentityRole>().AddEntityFrameworkStores<StoreContext>();
+            }).AddRoles<Role>().AddEntityFrameworkStores<StoreContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

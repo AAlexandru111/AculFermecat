@@ -1,9 +1,11 @@
-﻿using El_Proyecte_Grande.DTOs;
+﻿using El_Proyecte_Grande.Data;
+using El_Proyecte_Grande.DTOs;
 using El_Proyecte_Grande.Entities;
 using El_Proyecte_Grande.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace El_Proyecte_Grande.Controllers
 {
@@ -11,11 +13,13 @@ namespace El_Proyecte_Grande.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly TokenService _tokenService;
+        private readonly StoreContext _context;
 
-        public AccountController(UserManager<User> userManager, TokenService tokenService)
+        public AccountController(UserManager<User> userManager, TokenService tokenService, StoreContext context)
         {
             _userManager = userManager;
             _tokenService = tokenService;
+            _context = context;
         }
 
         [HttpPost("login")]
@@ -64,6 +68,30 @@ namespace El_Proyecte_Grande.Controllers
                 Email = user.Email,
                 Token = await _tokenService.GenerateToken(user)
             };
+        }
+
+        [Authorize]
+        [HttpGet("savedAddress")]
+        public async Task<ActionResult<UserAdress>> GetSavedAddress()
+        {
+            return await _userManager.Users
+                .Where(x => x.UserName == User.Identity.Name)
+                .Select(user => user.Adress)
+                .FirstOrDefaultAsync();
+        }
+
+        private async Task<Basket> RetrieveBasket(string buyerId)
+        {
+            if (string.IsNullOrEmpty(buyerId))
+            {
+                Response.Cookies.Delete("buyerId");
+                return null;
+            }
+
+            return await _context.Baskets
+                .Include(i => i.Items)
+                .ThenInclude(p => p.Product)
+                .FirstOrDefaultAsync(x => x.BuyerId == buyerId);
         }
     }
 }

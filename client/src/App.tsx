@@ -15,7 +15,7 @@ import { useStoreContext } from './context/StoreContext';
 import { getCookie } from './util/util';
 import agent from './features/api/agent';
 import LoadingComponent from './components/LoadingComponent';
-import CheckoutPage from './pages/CheckoutPage';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 import CustomOrder from './pages/custom/CustomOrder';
 import { Basket } from './features/models/basket';
 import { useAppDispatch } from './features/store/configureStore';
@@ -24,6 +24,7 @@ import Login from './pages/account/Login';
 import Register from './pages/account/Register';
 import { fetchCurrentUser } from './pages/account/accountSlice';
 import PrivateRoute from './components/PrivateRoute';
+import Orders from './pages/orders/Orders';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -57,6 +58,7 @@ function App() {
         <Route exact path='/checkout' component={CheckoutPage}></Route>
         <Route exact path='/login' component={Login}></Route>
         <Route exact path='/register' component={Register}></Route>
+        <PrivateRoute path='/orders' component={Orders} />
         <PrivateRoute path='/checkout' component={CheckoutPage} />
         {/*
  // @ts-ignore */}

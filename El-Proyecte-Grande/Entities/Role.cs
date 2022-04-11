@@ -2,8 +2,7 @@
 
 namespace El_Proyecte_Grande.Entities
 {
-    public class User : IdentityUser<int>
+    public class Role : IdentityRole<int>
     {
-        public UserAdress Adress { get; set; }
     }
 }

@@ -1,26 +1,26 @@
-import { FormControl, InputLabel, Select, MenuItem, FormHelperText } from "@mui/material";
+import { TextField } from "@mui/material";
 import { useController, UseControllerProps } from "react-hook-form";
 
 interface Props extends UseControllerProps {
     label: string;
-    items: string[];
+    multiline?: boolean;
+    rows?: number;
+    type?: string;
 }
 
-export default function AppSelectList(props: Props) {
-    const { fieldState, field } = useController({ ...props, defaultValue: '' });
+export default function AppTextInput(props: Props) {
+    const {fieldState, field} = useController({...props, defaultValue: ''})
     return (
-        <FormControl fullWidth error={!!fieldState.error}>
-            <InputLabel>{props.label}</InputLabel>
-            <Select
-                value={field.value}
-                label={props.label}
-                onChange={field.onChange}
-            >
-                {props.items.map((item, index) => (
-                    <MenuItem key={index} value={item}>{item}</MenuItem>
-                ))}
-            </Select>
-            <FormHelperText>{fieldState.error?.message}</FormHelperText>
-        </FormControl>
+        <TextField 
+            {...props}
+            {...field}
+            multiline={props.multiline}
+            rows={props.rows}
+            type={props.type}
+            fullWidth
+            variant='outlined'
+            error={!!fieldState.error}
+            helperText={fieldState.error?.message}
+        />
     )
 }
