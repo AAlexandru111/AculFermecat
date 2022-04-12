@@ -2,7 +2,6 @@ import { ShoppingCart } from "@mui/icons-material";
 import { AppBar, Badge, IconButton, List, ListItem, Switch, Toolbar, Typography, Box } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
 import '../components/Navbar.css'
-import { useStoreContext } from "../context/StoreContext";
 import { useAppSelector } from "../features/store/configureStore";
 import logo from '../pictures/logo.png'
 import SignedInMenu from "./SignedInMenu";

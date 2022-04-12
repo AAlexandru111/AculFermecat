@@ -1,3 +1,4 @@
+import { StringLiteralLike } from "typescript";
 
     export interface BasketItem {
         productId: number;
@@ -13,6 +14,9 @@
         id: number;
         buyerId: string;
         items: BasketItem[];
+        paymentIntentId?: string;
+        clientSecret?: string;
+
     }
 
 

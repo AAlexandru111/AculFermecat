@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace El_Proyecte_Grande.Data.Migrations
+namespace El_Proyecte_Grande.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    [Migration("20220411123725_PaymentIntentAdded")]
-    partial class PaymentIntentAdded
+    [Migration("20220412082501_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,15 +26,12 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("BuyerId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ClientSecret")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PaymentIntentId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -73,7 +70,6 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("BuyerId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("DeliveryFee")
@@ -86,7 +82,6 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("PaymentIntentId")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("Subtotal")
@@ -126,19 +121,15 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Brand")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PictureUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<long>("Price")
@@ -148,7 +139,6 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -186,14 +176,14 @@ namespace El_Proyecte_Grande.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "407dd67f-f13f-4079-848d-926a3065cffb",
+                            ConcurrencyStamp = "3fa27b8b-37db-43f5-b2d4-a7ecdb34370e",
                             Name = "Member",
                             NormalizedName = "MEMBER"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "f3723b63-68ec-468d-a9ab-7e507f021e38",
+                            ConcurrencyStamp = "e6581789-4ecc-42f4-8814-1580c6a48779",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -270,31 +260,24 @@ namespace El_Proyecte_Grande.Data.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Adress1")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Adress2")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("State")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ZipCode")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -428,31 +411,24 @@ namespace El_Proyecte_Grande.Data.Migrations
                                 .HasColumnType("INTEGER");
 
                             b1.Property<string>("Adress1")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("Adress2")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("City")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("Country")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("FullName")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("State")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("ZipCode")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.HasKey("OrderId");
@@ -463,8 +439,7 @@ namespace El_Proyecte_Grande.Data.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.Navigation("ShippingAdress")
-                        .IsRequired();
+                    b.Navigation("ShippingAdress");
                 });
 
             modelBuilder.Entity("El_Proyecte_Grande.Entities.OrderAggregate.OrderItem", b =>
@@ -479,11 +454,9 @@ namespace El_Proyecte_Grande.Data.Migrations
                                 .HasColumnType("INTEGER");
 
                             b1.Property<string>("Name")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<string>("PictureUrl")
-                                .IsRequired()
                                 .HasColumnType("TEXT");
 
                             b1.Property<int>("ProductId")
@@ -497,8 +470,7 @@ namespace El_Proyecte_Grande.Data.Migrations
                                 .HasForeignKey("OrderItemId");
                         });
 
-                    b.Navigation("ItemOrdered")
-                        .IsRequired();
+                    b.Navigation("ItemOrdered");
                 });
 
             modelBuilder.Entity("El_Proyecte_Grande.Entities.UserAdress", b =>
@@ -573,8 +545,7 @@ namespace El_Proyecte_Grande.Data.Migrations
 
             modelBuilder.Entity("El_Proyecte_Grande.Entities.User", b =>
                 {
-                    b.Navigation("Adress")
-                        .IsRequired();
+                    b.Navigation("Adress");
                 });
 #pragma warning restore 612, 618
         }

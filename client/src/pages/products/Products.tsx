@@ -5,10 +5,9 @@ import RadioButtonGroup from "../../components/RadioButtonGroup";
 import useProducts from "../../features/hooks/useProducts";
 import LoadingComponent from "../../components/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
-import { fetchProductsAsync, setPageNumber, setProductParams } from "./productSlice";
+import { setPageNumber, setProductParams } from "./productSlice";
 import ProductList from "../../components/ProductsList";
 import ProductSearch from "./ProductSearch";
-import { useEffect } from "react";
 
 const sortOptions = [
     { value: 'name', label: 'Alphabetical' },
@@ -18,7 +17,7 @@ const sortOptions = [
 
 export default function Catalog() {
     const {products, brands, types, filtersLoaded, metaData} = useProducts();
-    const { productParams,  } = useAppSelector((state: { catalog: any; }) => state.catalog);
+    const { productParams } = useAppSelector((state: { catalog: any; }) => state.catalog);
     const dispatch = useAppDispatch();
 
     if (!filtersLoaded) return <LoadingComponent message='Loading products...' />

@@ -13,9 +13,11 @@ namespace El_Proyecte_Grande.Entities
 
         public List<BasketItem> Items { get; set; } = new List<BasketItem>();
 
-        public string PaymentIntentId { get; set; }
+        public string? PaymentIntentId { get; set; }
 
-        public string ClientSecret { get; set; }
+#pragma warning disable CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
+        public string? ClientSecret { get; set; }
+#pragma warning restore CS8632 // The annotation for nullable reference types should only be used in code within a '#nullable' annotations context.
 
         public void AddItem(Product product, int quantity)
         {

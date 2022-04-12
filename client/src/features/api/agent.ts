@@ -55,10 +55,18 @@ axios.interceptors.response.use(async response => {
 })
 
 // axios.interceptors.request.use(config => {
+//     try {
+//         console.log("pula")
 //     const token = store.getState().account.user?.token;
 //     if (token) config.headers!.Authorization = `Bearer ${token}`;
 //     return config;
+        
+//     } catch (error) {
+//         console.log(error)
+//     }
+    
 // })
+
 
 const requests = {
     get: (url: string, params?: URLSearchParams) => axios.get(url, {params}).then(responseBody),
@@ -101,12 +109,17 @@ const Orders = {
     create: (values: any) => requests.post('orders', values)
 }
 
+const Payments={
+    createPaymentIntent: () => requests.post('payments', {})
+}
+
 const agent = {
     Catalog,
     TestErrors,
     Basket,
     Account,
-    Orders
+    Orders,
+    Payments
 }
 
 

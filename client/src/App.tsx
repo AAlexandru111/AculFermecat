@@ -7,7 +7,6 @@ import About from './pages/about/About';
 import Contact from './pages/contact/Contact';
 import Products from './pages/products/Products';
 import Navbar from './components/Navbar'
-import { Container } from '@mui/material';
 import ProductDetails from './pages/products/ProductDetails';
 import Footer from '../src/components/Footer'
 import BasketPage from './pages/basket/BasketPage';
@@ -25,6 +24,7 @@ import Register from './pages/account/Register';
 import { fetchCurrentUser } from './pages/account/accountSlice';
 import PrivateRoute from './components/PrivateRoute';
 import Orders from './pages/orders/Orders';
+import CheckoutWrapper from './pages/checkout/CheckoutWrapper';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -55,7 +55,7 @@ function App() {
         <Route exact path='/products' component={Products}></Route>
         <Route exact path='/products/:id' component={ProductDetails}></Route>
         <Route exact path='/basket' component={BasketPage}></Route>
-        <Route exact path='/checkout' component={CheckoutPage}></Route>
+        <Route exact path='/checkout' component={CheckoutWrapper}></Route>
         <Route exact path='/login' component={Login}></Route>
         <Route exact path='/register' component={Register}></Route>
         <PrivateRoute path='/orders' component={Orders} />

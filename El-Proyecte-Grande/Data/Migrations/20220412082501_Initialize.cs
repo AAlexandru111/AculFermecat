@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace El_Proyecte_Grande.Data.Migrations
+namespace El_Proyecte_Grande.Migrations
 {
-    public partial class OrderEntityAdded : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -56,7 +56,9 @@ namespace El_Proyecte_Grande.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BuyerId = table.Column<string>(type: "TEXT", nullable: false)
+                    BuyerId = table.Column<string>(type: "TEXT", nullable: true),
+                    PaymentIntentId = table.Column<string>(type: "TEXT", nullable: true),
+                    ClientSecret = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,18 +71,19 @@ namespace El_Proyecte_Grande.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    BuyerId = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_FullName = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_Adress1 = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_Adress2 = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_City = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_State = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_ZipCode = table.Column<string>(type: "TEXT", nullable: false),
-                    ShippingAdress_Country = table.Column<string>(type: "TEXT", nullable: false),
+                    BuyerId = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_FullName = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_Adress1 = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_Adress2 = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_City = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_State = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_ZipCode = table.Column<string>(type: "TEXT", nullable: true),
+                    ShippingAdress_Country = table.Column<string>(type: "TEXT", nullable: true),
                     OrderDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Subtotal = table.Column<long>(type: "INTEGER", nullable: false),
                     DeliveryFee = table.Column<long>(type: "INTEGER", nullable: false),
-                    OrderStatus = table.Column<int>(type: "INTEGER", nullable: false)
+                    OrderStatus = table.Column<int>(type: "INTEGER", nullable: false),
+                    PaymentIntentId = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -93,12 +96,12 @@ namespace El_Proyecte_Grande.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<long>(type: "INTEGER", nullable: false),
-                    PictureUrl = table.Column<string>(type: "TEXT", nullable: false),
-                    Type = table.Column<string>(type: "TEXT", nullable: false),
-                    Brand = table.Column<string>(type: "TEXT", nullable: false),
+                    PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
+                    Type = table.Column<string>(type: "TEXT", nullable: true),
+                    Brand = table.Column<string>(type: "TEXT", nullable: true),
                     QuantityInStock = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -217,13 +220,13 @@ namespace El_Proyecte_Grande.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false),
-                    FullName = table.Column<string>(type: "TEXT", nullable: false),
-                    Adress1 = table.Column<string>(type: "TEXT", nullable: false),
-                    Adress2 = table.Column<string>(type: "TEXT", nullable: false),
-                    City = table.Column<string>(type: "TEXT", nullable: false),
-                    State = table.Column<string>(type: "TEXT", nullable: false),
-                    ZipCode = table.Column<string>(type: "TEXT", nullable: false),
-                    Country = table.Column<string>(type: "TEXT", nullable: false)
+                    FullName = table.Column<string>(type: "TEXT", nullable: true),
+                    Adress1 = table.Column<string>(type: "TEXT", nullable: true),
+                    Adress2 = table.Column<string>(type: "TEXT", nullable: true),
+                    City = table.Column<string>(type: "TEXT", nullable: true),
+                    State = table.Column<string>(type: "TEXT", nullable: true),
+                    ZipCode = table.Column<string>(type: "TEXT", nullable: true),
+                    Country = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -242,9 +245,9 @@ namespace El_Proyecte_Grande.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ItemOrdered_ProductId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ItemOrdered_Name = table.Column<string>(type: "TEXT", nullable: false),
-                    ItemOrdered_PictureUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    ItemOrdered_ProductId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ItemOrdered_Name = table.Column<string>(type: "TEXT", nullable: true),
+                    ItemOrdered_PictureUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<long>(type: "INTEGER", nullable: false),
                     Quantity = table.Column<int>(type: "INTEGER", nullable: false),
                     OrderId = table.Column<int>(type: "INTEGER", nullable: true)
@@ -289,12 +292,12 @@ namespace El_Proyecte_Grande.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 1, "4fc7a285-f2a6-4ac7-a9d7-84d19608ab3a", "Member", "MEMBER" });
+                values: new object[] { 1, "3fa27b8b-37db-43f5-b2d4-a7ecdb34370e", "Member", "MEMBER" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { 2, "6dd186fc-1e76-481c-bfcd-f08bed63e7fd", "Admin", "ADMIN" });
+                values: new object[] { 2, "e6581789-4ecc-42f4-8814-1580c6a48779", "Admin", "ADMIN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

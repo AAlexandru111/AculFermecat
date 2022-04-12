@@ -77,7 +77,8 @@ namespace El_Proyecte_Grande.Controllers
                 BuyerId = User.Identity.Name,
                 ShippingAdress = orderDto.ShippingAdress,
                 Subtotal = subtotal,
-                DeliveryFee = deliveryFee
+                DeliveryFee = deliveryFee,
+                PaymentIntentId = basket.PaymentIntentId
             };
 
             _context.Orders.Add(order);
