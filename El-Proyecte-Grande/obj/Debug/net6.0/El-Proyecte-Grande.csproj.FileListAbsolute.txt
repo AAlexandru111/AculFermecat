@@ -393,3 +393,12 @@ C:\Users\Ana\Desktop\advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\E
 C:\Users\Ana\Desktop\advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 C:\Users\Ana\Desktop\advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Ana\Desktop\advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\EntityFramework.SqlServer.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\EntityFramework.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\User\Desktop\proiect advanced\el-proyecte-grande-sprint-3-csharp-AAlexandru111\El-Proyecte-Grande\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

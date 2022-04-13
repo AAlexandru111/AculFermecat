@@ -1,9 +1,9 @@
+import { store } from "../store/configureStore";
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { request } from "http";
 import { toast } from "react-toastify";
 import { history } from "../..";
 import { PaginatedResponse } from "../models/pagination";
-import { store } from "../store/configureStore";
+
 
 const sleep = () => new Promise(resolve => setTimeout(resolve , 500));
 
@@ -54,19 +54,31 @@ axios.interceptors.response.use(async response => {
     return Promise.reject(error.response);
 })
 
-// axios.interceptors.request.use(config => {
-//     try {
-//         console.log("pula")
-//     const token = store.getState().account.user?.token;
-//     if (token) config.headers!.Authorization = `Bearer ${token}`;
-//     return config;
+axios.interceptors.request.use(config => {
+    try {
+    const token = store.getState().account.user?.token;
+    if (token) config.headers!.Authorization = `Bearer ${token}`;
+    return config;
         
-//     } catch (error) {
-//         console.log(error)
-//     }
+    } catch (error) {
+        console.log(error)
+    }
     
-// })
+})
 
+
+// let user = JSON.parse(sessionStorage.getItem('data')!);
+// const token = store.getState().account.user?.token
+
+// const api = `your api here`
+// axios.get(api, { headers: {"Authorization" : `Bearer ${token}`} })
+//         .then(res => {
+//             console.log(res.data);
+//         store.setState({
+//             items: res.data,  /*set response data in items array*/
+//             isLoaded : true,
+//             redirectToReferrer: false
+//         })
 
 const requests = {
     get: (url: string, params?: URLSearchParams) => axios.get(url, {params}).then(responseBody),

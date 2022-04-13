@@ -1,8 +1,8 @@
 import { Grid } from "@mui/material";
-import { Product } from "../features/models/products";
-import { useAppSelector } from "../features/store/configureStore";
-import ProductCard from "../components/ProductCard";
-import ProductCardSkeleton from "../pages/products/ProductCardSkeleton";
+import { Product } from "../../features/models/products";
+import { useAppSelector } from "../../features/store/configureStore";
+import ProductCard from "./ProductCard";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 
 interface Props {
     products: Product[];

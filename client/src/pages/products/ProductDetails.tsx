@@ -1,19 +1,14 @@
+import { LoadingButton } from "@mui/lab";
 import { Divider, Grid, Table, TableBody, TableCell, TableContainer, TableRow, TextField, Typography } from "@mui/material";
-import { SetStateAction, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import agent from "../../features/api/agent";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import NotFound from "../../features/errors/NotFound";
 import LoadingComponent from "../../components/LoadingComponent";
-import { Product } from "../../features/models/products";
-import { useStoreContext } from "../../context/StoreContext";
-import { LoadingButton } from "@mui/lab";
-import Footer from "../../components/Footer";
-import { Basket } from "../../features/models/basket";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
-import { addBasketItemAsync, removeBasketItemAsync, setBasket } from "../basket/basketSlice";
-import { fetchProductAsync, productSelectors, setProduct } from "./productSlice";
+import { addBasketItemAsync, removeBasketItemAsync  } from "../basket/basketSlice";
+import { fetchProductAsync, productSelectors } from "./productSlice";
 
-export default function ProductDetails(){
+export default function ProductDetails() {
     const {basket, status} = useAppSelector(state => state.basket);
     const dispatch = useAppDispatch();
     const {id} = useParams<{id: string}>();
@@ -27,11 +22,10 @@ export default function ProductDetails(){
         if (!product) dispatch(fetchProductAsync(parseInt(id)))
     }, [id, item, dispatch, product]);
 
-    function handleInputChange(event: any){
-        if(event.target.value >= 0){
+    function handleInputChange(event: any) {
+        if (event.target.value > 0) {
             setQuantity(parseInt(event.target.value));
         }
-        
     }
 
     function handleUpdateCart() {
@@ -46,72 +40,70 @@ export default function ProductDetails(){
 
     if (productStatus.includes('pending')) return <LoadingComponent message='Loading product...' />
 
-    if (!product) return <NotFound/>
-    return(
-        <>
+    if (!product) return <NotFound />
+
+    return (
         <Grid container spacing={6}>
             <Grid item xs={6}>
-                <img src={product.pictureUrl} alt={product.name} style={{width:"100%"}}></img>
-                </Grid>
-                <Grid item xs={6}>
-                    <Typography variant='h3'>{product.name}</Typography>
-                    <Divider sx={{mb: 2}}></Divider>
-                    <Typography variant='h4' color='secondary'>${(product.price / 100).toFixed(2)}</Typography>
-                    <TableContainer>
-                        <Table>
-                            <TableBody>
-                                <TableRow>
-                                    <TableCell>Name</TableCell>
-                                    <TableCell>{product.name}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Description</TableCell>
-                                    <TableCell>{product.description}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Type</TableCell>
-                                    <TableCell>{product.type}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Brand</TableCell>
-                                    <TableCell>{product.brand}</TableCell>
-                                </TableRow>
-                                <TableRow>
-                                    <TableCell>Quantity</TableCell>
-                                    <TableCell>{product.quantityInStock}</TableCell>
-                                </TableRow>
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    <Grid container spacing={2}>
-                        <Grid item xs={6}>
-                            <TextField 
-                            onChange={handleInputChange}
+                <img src={product.pictureUrl} alt={product.name} style={{width: '100%'}} />
+            </Grid>
+            <Grid item xs={6}>
+                <Typography variant='h3'>{product.name}</Typography>
+                <Divider sx={{mb: 2}} />
+                <Typography variant='h4' color='secondary'>${(product.price / 100).toFixed(2)}</Typography>
+                <TableContainer>
+                    <Table>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>Name</TableCell>
+                                <TableCell>{product.name}</TableCell>
+                            </TableRow>    
+                            <TableRow>
+                                <TableCell>Description</TableCell>
+                                <TableCell>{product.description}</TableCell>
+                            </TableRow>  
+                            <TableRow>
+                                <TableCell>Type</TableCell>
+                                <TableCell>{product.type}</TableCell>
+                            </TableRow>  
+                            <TableRow>
+                                <TableCell>Brand</TableCell>
+                                <TableCell>{product.brand}</TableCell>
+                            </TableRow>  
+                            <TableRow>
+                                <TableCell>Quantity in stock</TableCell>
+                                <TableCell>{product.quantityInStock}</TableCell>
+                            </TableRow>  
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+                <Grid container spacing={2}>
+                    <Grid item xs={6}>
+                        <TextField 
                             variant='outlined'
                             type='number'
-                            label='Quantity of Product'
+                            label='Quantity in Cart'
                             fullWidth
-                            value={quantity} />
-                        </Grid>
-                        <Grid item xs={6}>
-                            <LoadingButton
-                            disabled={item?.quantity === quantity || !item && quantity === 0}
+                            value={quantity}
+                            onChange={handleInputChange}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <LoadingButton
+                            disabled={item?.quantity === quantity}
                             loading={status.includes('pending')}
                             onClick={handleUpdateCart}
                             sx={{height: '55px'}}
                             color='primary'
                             size='large'
                             variant='contained'
-                            fullWidth>
-                                {item ? 'Update Quantity' : 'Add to cart'}
-                            </LoadingButton>
-                        </Grid>
+                            fullWidth
+                        >
+                            {item ? 'Update Quantity' : 'Add to Cart'}
+                        </LoadingButton>
                     </Grid>
-                    </Grid>
-                    
+                </Grid>
+            </Grid>
         </Grid>
-        <Footer/>
-        </>
-        
     )
 }

@@ -1,12 +1,12 @@
 import { Grid, Paper } from "@mui/material";
+import { useEffect } from "react";
 import AppPagination from "../../components/AppPagination";
 import CheckboxButtons from "../../components/CheckboxButtons";
 import RadioButtonGroup from "../../components/RadioButtonGroup";
-import useProducts from "../../features/hooks/useProducts";
 import LoadingComponent from "../../components/LoadingComponent";
 import { useAppDispatch, useAppSelector } from "../../features/store/configureStore";
-import { setPageNumber, setProductParams } from "./productSlice";
-import ProductList from "../../components/ProductsList";
+import { fetchFilters, fetchProductsAsync, productSelectors, setPageNumber, setProductParams } from "./productSlice";
+import ProductList from "./ProductList";
 import ProductSearch from "./ProductSearch";
 
 const sortOptions = [
@@ -16,9 +16,17 @@ const sortOptions = [
 ]
 
 export default function Catalog() {
-    const {products, brands, types, filtersLoaded, metaData} = useProducts();
-    const { productParams } = useAppSelector((state: { catalog: any; }) => state.catalog);
+    const products = useAppSelector(productSelectors.selectAll);
+    const { productsLoaded, filtersLoaded, brands, types, productParams, metaData } = useAppSelector(state => state.catalog);
     const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        if (!productsLoaded) dispatch(fetchProductsAsync());
+    }, [productsLoaded, dispatch])
+
+    useEffect(() => {
+        if (!filtersLoaded) dispatch(fetchFilters());
+    }, [filtersLoaded, dispatch]);
 
     if (!filtersLoaded) return <LoadingComponent message='Loading products...' />
 
@@ -32,7 +40,7 @@ export default function Catalog() {
                     <RadioButtonGroup
                         selectedValue={productParams.orderBy}
                         options={sortOptions}
-                        onChange={(e: { target: { value: any; }; }) => dispatch(setProductParams({ orderBy: e.target.value }))}
+                        onChange={(e) => dispatch(setProductParams({ orderBy: e.target.value }))}
                     />
                 </Paper>
                 <Paper sx={{ mb: 2, p: 2 }}>

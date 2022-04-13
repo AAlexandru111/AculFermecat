@@ -8,16 +8,11 @@ import Contact from './pages/contact/Contact';
 import Products from './pages/products/Products';
 import Navbar from './components/Navbar'
 import ProductDetails from './pages/products/ProductDetails';
-import Footer from '../src/components/Footer'
 import BasketPage from './pages/basket/BasketPage';
-import { useStoreContext } from './context/StoreContext';
-import { getCookie } from './util/util';
-import agent from './features/api/agent';
 import LoadingComponent from './components/LoadingComponent';
 import CheckoutPage from './pages/checkout/CheckoutPage';
 import CustomOrder from './pages/custom/CustomOrder';
-import { Basket } from './features/models/basket';
-import { useAppDispatch } from './features/store/configureStore';
+import { store, useAppDispatch } from './features/store/configureStore';
 import { fetchBasketAsync, setBasket } from './pages/basket/basketSlice';
 import Login from './pages/account/Login';
 import Register from './pages/account/Register';
