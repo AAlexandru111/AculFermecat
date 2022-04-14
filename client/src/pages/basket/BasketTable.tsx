@@ -20,8 +20,8 @@ export default function BasketTable({ items, isBasket = true }: Props) {
                 <TableHead>
                     <TableRow>
                         <TableCell>Product</TableCell>
-                        <TableCell align="right">Price</TableCell>
-                        <TableCell align="center">Quantity</TableCell>
+                        <TableCell align="right">Pret</TableCell>
+                        <TableCell align="center">Cantitate</TableCell>
                         <TableCell align="right">Subtotal</TableCell>
                         {isBasket &&
                             <TableCell align="right"></TableCell>}

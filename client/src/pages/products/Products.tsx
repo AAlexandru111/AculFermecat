@@ -10,9 +10,9 @@ import ProductList from "./ProductList";
 import ProductSearch from "./ProductSearch";
 
 const sortOptions = [
-    { value: 'name', label: 'Alphabetical' },
-    { value: 'priceDesc', label: 'Price - High to low' },
-    { value: 'price', label: 'Price - Low to high' },
+    { value: 'name', label: 'Alfabetic' },
+    { value: 'priceDesc', label: 'Preț - De la mare la mic' },
+    { value: 'price', label: 'Preț - De la mic la mare' },
 ]
 
 export default function Catalog() {

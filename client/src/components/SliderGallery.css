@@ -1,14 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500&display=swap');
+
+
 .sliderimg{
     height:700px;
     width:700px;
     border-radius: 700px;
+    margin:20px;
+    margin-right:70px;
+    
 }
 
-.alice-carousel__play-btn{
-    display:none !important;
+.alice-carousel__play-btn-wrapper{
+    background-color: black;
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.alice-carousel__play-btn-item{
+    top: 30%;
+    left: 27%;
 }
 
 .alice-carousel__stage-item {
     margin-bottom: 100px !important;
     margin-top: 100px !important;
+    
+}
+
+.item{
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.item p{
+    width: 550px;
+    font-size: 2em;
+    font-family: 'Plus Jakarta Sans', sans-serif;
 }

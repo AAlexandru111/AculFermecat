@@ -14,7 +14,7 @@ export default function Homepage() {
             <div className="coverdiv">
                 <img src={cover} className="cover"></img>
                 <div className="blackcover"></div>
-                <div data-aos="fade-right"><a href="/products" className="buttontoproducts">See Products</a></div>
+                <div data-aos="fade-right"><a href="/products" className="buttontoproducts">Acceseaza Produsele</a></div>
                 
             </div>
             <Footer/>

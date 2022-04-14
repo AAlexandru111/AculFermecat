@@ -7,7 +7,7 @@ import BasketTable from "./BasketTable";
 export default function BasketPage() {
     const { basket } = useAppSelector(state => state.basket);
 
-    if (!basket) return <Typography variant='h3'>Your basket is empty</Typography>
+    if (!basket) return <Typography variant='h3'>Cosul tau este gol!</Typography>
 
     return (
         <>
@@ -23,7 +23,7 @@ export default function BasketPage() {
                         size='large'
                         fullWidth
                     >
-                        Checkout
+                        Finalizati comanda
                     </Button>
                 </Grid>
             </Grid>

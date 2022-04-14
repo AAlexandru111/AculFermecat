@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from "../../features/store/configureSt
 import { StripeElementType } from "@stripe/stripe-js";
 import { CardNumberElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
-const steps = ['Shipping address', 'Review your order', 'Payment details'];
+const steps = ['Adresa de livrare', 'Verifica-ti comanda', 'Detalii plata'];
 
 export default function CheckoutPage() {
     const [activeStep, setActiveStep] = useState(0);
@@ -87,7 +87,7 @@ export default function CheckoutPage() {
                 const orderNumber = await agent.Orders.create({ saveAddress, shippingAddress });
                 setOrderNumber(orderNumber);
                 setPaymentSucceeded(true);
-                setPaymentMessage('Thank you - we have received your payment');
+                setPaymentMessage('Plata a fost efectuata cu succes!');
                 setActiveStep(activeStep + 1);
                 dispatch(clearBasket());
                 setLoading(false);
@@ -148,13 +148,11 @@ export default function CheckoutPage() {
                             </Typography>
                             {paymentSucceeded ? (
                                 <Typography variant="subtitle1">
-                                    Your order number is #{orderNumber}. We have not emailed your order
-                                    confirmation, and will not send you an update when your order has
-                                    shipped as this is a fake store!
+                                    Numărul comenzii dvs. este #{orderNumber}. 
                                 </Typography>
                             ) : (
                                 <Button variant='contained' onClick={handleBack}>
-                                    Go back and try again
+                                    Întoarceți-vă și încercați din nou
                                 </Button>
                             )}
 
@@ -175,7 +173,7 @@ export default function CheckoutPage() {
                                     type='submit'
                                     sx={{ mt: 3, ml: 1 }}
                                 >
-                                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
+                                    {activeStep === steps.length - 1 ? 'Plasați comanda' : 'Next'}
                                 </LoadingButton>
                             </Box>
                         </form>

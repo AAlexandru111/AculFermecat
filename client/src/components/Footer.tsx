@@ -16,7 +16,7 @@ export default function Footer(){
                 <Container maxWidth='lg'>
                     <Grid container spacing={7} >
                         <Grid item xs={12} sm={4} spacing={4}>
-                            <Box borderBottom={1}><Typography variant='h5'>Need Help</Typography></Box>
+                            <Box borderBottom={1}><Typography variant='h5'>Informatii</Typography></Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/' color='inherit'>
                                     Home
@@ -24,37 +24,37 @@ export default function Footer(){
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/contact' color='inherit'>
-                                    Contact us
+                                    Contact
                                 </Link>
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/about' color='inherit'>
-                                    About us
+                                    Despre noi
                                 </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Box borderBottom={1}><Typography variant='h5'>Products</Typography></Box>
+                            <Box borderBottom={1}><Typography variant='h5'>Produse</Typography></Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/products' color='inherit'>
-                                    Product page
+                                    Produse
                                 </Link>
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/basket' color='inherit'>
-                                    Cart
+                                    Cosul de cumparaturi
                                 </Link>
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <Link className="footerlinks" to='/checkout' color='inherit'>
-                                    Checkout
+                                    Finalizeaza comanda
                                 </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={4}>
                             <Box borderBottom={1}><Typography variant='h5'>Contact</Typography></Box>
                             <Box sx={{ p: 1}}>
-                                <a href="tel:+40755066044" className="footerlinks">Phone</a>
+                                <a href="tel:+40755066044" className="footerlinks">Telefon</a>
                             </Box>
                             <Box sx={{ p: 1}}>
                                 <a href="https://wa.me/+40755066044" className="footerlinks" target="_blank">

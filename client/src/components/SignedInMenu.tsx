@@ -20,7 +20,7 @@ export default function SignedInMenu() {
     return (
         <>
             <Button
-                color='inherit'
+                color='primary'
                 onClick={handleClick}
                 sx={{ typography: 'h6' }}
             >
@@ -32,7 +32,7 @@ export default function SignedInMenu() {
                 onClose={handleClose}
                 TransitionComponent={Fade}
             >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem component={Link} to='/profile'>Profile</MenuItem>
                 <MenuItem component={Link} to='/orders'>My orders</MenuItem>
                 <MenuItem onClick={() => {
                     dispatch(signOut());

@@ -9,11 +9,21 @@ import acul5 from '../pictures/acul5.jpg';
 import '../components/SliderGallery.css';
 
 const items = [
-    <div className="item" data-value="1"><img src={acul1} className="sliderimg"></img></div>,
-    <div className="item" data-value="2"><img src={acul2} className="sliderimg"></img></div>,
-    <div className="item" data-value="3"><img src={acul3} className="sliderimg"></img></div>,
-    <div className="item" data-value="4"><img src={acul4} className="sliderimg"></img></div>,
-    <div className="item" data-value="5"><img src={acul5} className="sliderimg"></img></div>,
+    <div className="item" data-value="1"><p>
+    S.C. ACCENT DESIGN S.R.L. a fost înfiinţată din 1994 şi a pornit activitatea cu doi angajaţi într-un spaţiu dotat cu utilaje pentru confecţii, închiriat de la un proprietar care a încercat anterior să se lanseze în aceasta afacere, dar nu a reuşit.
+    </p><img src={acul1} className="sliderimg"></img></div>,
+    <div className="item" data-value="2"><p>
+    S.C. ACCENT DESIGN S.R.L. a fost înfiinţată din 1994 şi a pornit activitatea cu doi angajaţi într-un spaţiu dotat cu utilaje pentru confecţii, închiriat de la un proprietar care a încercat anterior să se lanseze în aceasta afacere, dar nu a reuşit.
+    </p><img src={acul2} className="sliderimg"></img></div>,
+    <div className="item" data-value="3"><p>
+    S.C. ACCENT DESIGN S.R.L. a fost înfiinţată din 1994 şi a pornit activitatea cu doi angajaţi într-un spaţiu dotat cu utilaje pentru confecţii, închiriat de la un proprietar care a încercat anterior să se lanseze în aceasta afacere, dar nu a reuşit.
+    </p><img src={acul3} className="sliderimg"></img></div>,
+    <div className="item" data-value="4"><p>
+    S.C. ACCENT DESIGN S.R.L. a fost înfiinţată din 1994 şi a pornit activitatea cu doi angajaţi într-un spaţiu dotat cu utilaje pentru confecţii, închiriat de la un proprietar care a încercat anterior să se lanseze în aceasta afacere, dar nu a reuşit.
+    </p><img src={acul4} className="sliderimg"></img></div>,
+    <div className="item" data-value="5"><p>
+    S.C. ACCENT DESIGN S.R.L. a fost înfiinţată din 1994 şi a pornit activitatea cu doi angajaţi într-un spaţiu dotat cu utilaje pentru confecţii, închiriat de la un proprietar care a încercat anterior să se lanseze în aceasta afacere, dar nu a reuşit.
+    </p><img src={acul5} className="sliderimg"></img></div>,
 ];
 
 const Carousel = () => (

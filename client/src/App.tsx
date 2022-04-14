@@ -20,6 +20,7 @@ import { fetchCurrentUser } from './pages/account/accountSlice';
 import PrivateRoute from './components/PrivateRoute';
 import Orders from './pages/orders/Orders';
 import CheckoutWrapper from './pages/checkout/CheckoutWrapper';
+import Profile from './pages/profile/Profilepage';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -54,6 +55,7 @@ function App() {
         <Route exact path='/login' component={Login}></Route>
         <Route exact path='/register' component={Register}></Route>
         <PrivateRoute path='/orders' component={Orders} />
+        <PrivateRoute path='/profile' component={Profile} />
         <PrivateRoute path='/checkout' component={CheckoutPage} />
         {/*
  // @ts-ignore */}

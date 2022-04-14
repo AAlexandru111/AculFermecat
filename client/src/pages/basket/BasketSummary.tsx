@@ -22,7 +22,7 @@ export default function BasketSummary({subtotal}: Props) {
                             <TableCell align="right">{currencyFormat(subtotal)}</TableCell>
                         </TableRow>
                         <TableRow>
-                            <TableCell colSpan={2}>Delivery fee*</TableCell>
+                            <TableCell colSpan={2}>Taxa de livrare*</TableCell>
                             <TableCell align="right">{currencyFormat(deliveryFee)}</TableCell>
                         </TableRow>
                         <TableRow>
@@ -31,7 +31,7 @@ export default function BasketSummary({subtotal}: Props) {
                         </TableRow>
                         <TableRow>
                             <TableCell>
-                                <span style={{fontStyle: 'italic'}}>*Orders over $100 qualify for free delivery</span>
+                                <span style={{fontStyle: 'italic'}}>*Comenzile de peste 100 RON se califică pentru livrare gratuită</span>
                             </TableCell>
                         </TableRow>
                     </TableBody>

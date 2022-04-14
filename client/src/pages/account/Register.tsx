@@ -44,7 +44,7 @@ export default function Register() {
                 onSubmit={handleSubmit((data) =>
                     agent.Account.register(data)
                         .then(() => {
-                            toast.success('Registration successful - you can now login');
+                            toast.success('Ati fost inregistrat cu succes - va puteti loga!');
                             history.push('/login');
                         })
                         .catch(error => handleApiErrors(error))
@@ -56,7 +56,7 @@ export default function Register() {
                     fullWidth
                     label="Username"
                     autoFocus
-                    {...register('username', { required: 'Username is required' })}
+                    {...register('username', { required: 'Introduceti un nume de utilizator!' })}
                     error={!!errors.username}
                     helperText={errors?.username?.message}
                 />
@@ -65,10 +65,10 @@ export default function Register() {
                     fullWidth
                     label="Email address"
                     {...register('email', { 
-                        required: 'Email is required',
+                        required: 'Introduceti un e-mail!',
                         pattern: {
                             value: /^\w+[\w-.]*@\w+((-\w+)|(\w*)).[a-z]{2,3}$/,
-                            message: 'Not a valid email address'
+                            message: 'Adresa de e-mail introdusa nu este corecta!'
                         } 
                     })}
                     error={!!errors.email}
@@ -80,10 +80,10 @@ export default function Register() {
                     label="Password"
                     type="password"
                     {...register('password', { 
-                        required: 'Password is required',
+                        required: 'Introduceti o parola!',
                         pattern: {
                             value: /(?=^.{6,10}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&amp;*()_+}{&quot;:;'?/&gt;.&lt;,])(?!.*\s).*$/,
-                            message: 'Password is not complex enough'
+                            message: 'Parola nu este destul de complexa!'
                         }
                     })}
                     error={!!errors.password}
@@ -102,7 +102,7 @@ export default function Register() {
                 <Grid container>
                     <Grid item>
                         <Link to='/login'>
-                            {"Already have an account? Sign In"}
+                            {"Aveti un cont inregistrat deja? Logati-va!"}
                         </Link>
                     </Grid>
                 </Grid>

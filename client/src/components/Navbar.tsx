@@ -7,8 +7,8 @@ import logo from '../pictures/logo.png'
 import SignedInMenu from "./SignedInMenu";
 
 const midLinks=[
-    {title: 'products', path: '/products'},
-    {title: 'about ', path: '/about'},
+    {title: 'produse', path: '/products'},
+    {title: 'despre ', path: '/about'},
     { title: 'contact', path: '/contact' },
     {title: 'custom', path: '/custom'},
 ]

@@ -34,8 +34,8 @@ export default function Orders() {
                     <TableRow>
                         <TableCell>Order number</TableCell>
                         <TableCell align="right">Total</TableCell>
-                        <TableCell align="right">Order Date</TableCell>
-                        <TableCell align="right">Order Status</TableCell>
+                        <TableCell align="right">Data comenzii</TableCell>
+                        <TableCell align="right">Status comanda</TableCell>
                         <TableCell align="right"></TableCell>
                     </TableRow>
                 </TableHead>

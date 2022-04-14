@@ -1,6 +1,4 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
@@ -8,10 +6,8 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Paper from '@material-ui/core/Paper';
 import { Link, useHistory } from 'react-router-dom';
-import agent from '../../features/api/agent';
 import { FieldValues, useForm } from 'react-hook-form';
 import { LoadingButton } from '@mui/lab';
 import { useAppDispatch } from '../../features/store/configureStore';
@@ -49,7 +45,7 @@ export default function Login() {
               fullWidth
               label="Username"
               autoFocus
-              {...register('username', {required:'Username is required'})}
+              {...register('username', {required:'Introduceti un nume de utilizator!'})}
               error={!!errors.username}
               helperText={errors?.username?.message}
             />
@@ -59,7 +55,7 @@ export default function Login() {
               label="Password"
               type="password"
               autoComplete="current-password"
-              {...register('password', {required:'Password is required'})}
+              {...register('password', {required:'Introduceti o parola!'})}
               error={!!errors.password}
               helperText={errors?.password?.message}
             />
@@ -78,7 +74,7 @@ export default function Login() {
               </Grid>
               <Grid item>
                 <Link to="/register">
-                  {"Don't have an account? Sign Up"}
+                  {"Nu aveti deja un cont? Inregistreaza-te!"}
                 </Link>
               </Grid>
             </Grid>
