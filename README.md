@@ -1,4 +1,4 @@
-<h1 align="center"> :see_no_evil: Acul Fermecat :speak_no_evil:</h1>
+<h1 align="center">  Acul Fermecat </h1>
 <h3 align="center">Project Description: <h3/>
   
   <div>
